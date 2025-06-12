@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SPOT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 启动页 -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="#2196F3">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
+            </svg>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="sticker" id="sticker">
+                <img src="images/gogo_launch.png" alt="加载动画">
+            </div>
+        </div>
+        <div class="text">正在加载中...</div>
+    </div>
+
+    <!-- 主页内容 -->
+    <div class="loading-content">
+        <h1 id="main-heading">网站已加载完成</h1>
+        <p id="main-description">您可以开始浏览内容了！</p>
+        <div class="pattern-container">
+            <!-- 蓝色圆形图案修改为图片 -->
+            <div class="pattern" id="pattern1">
+                <img id="circleImage" src="images/挨打_1.jpg" alt="圆形图片">
+                <!-- 经验条容器 -->
+                <div class="exp-container">
+                    <div class="exp-bar">
+                        <div class="exp-fill" id="expFill">
+                            <div class="exp-value" id="expValue">9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pattern" id="pattern2">
+                <img id="pattern2Img" src="images/figure_1.gif" alt="动态图片">
+            </div>
+            <!-- 替换原黄色三角形图案为新图片 -->
+            <div class="pattern" id="pattern3">
+                <img id="tvImage" src="images/TV_1.png" alt="TV 图片">
+            </div>
+            <!-- 替换原红色菱形图案为新图片 -->
+            <div class="pattern" id="pattern4">
+                <img id="pattern4Img" src="images/2_figure_1.gif" alt="动态图片">
+            </div>
+            <!-- 替换粉色菱形图案为新图片 -->
+            <div class="pattern" id="pattern5">
+                <img id="radioImage" src="images/radio_1.png" alt="Radio 图片">
+            </div>
+        </div>
+        <!-- 社交按钮容器修改后 -->
+        <div class="social-buttons">
+            <a href="#" id="xiaohongshuBtn" target="_blank" class="social-btn">
+                <img src="images/xiaohongshu_logo.png" alt="小红书">
+            </a>
+            <a href="#" id="weiboBtn" target="_blank" class="social-btn">
+                <img src="images/weibo_logo.png" alt="微博">
+            </a>
+            <a href="#" id="douyinBtn" target="_blank" class="social-btn">
+                <img src="images/douyin_logo.png" alt="抖音">
+            </a>
+        </div>
+    </div>
+
+    <!-- 主菜单按钮 -->
+    <div class="main-menu-container" id="mainMenuContainer">
+        <button class="menu-btn" id="menuBtn">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-dropdown" id="menuDropdown">
+            <a href="#" id="contactLink"><i>✉️</i> <span class="lang-text" data-zh="联系我们" data-en="Contact Us"></span></a>
+            <a href="#" id="formLink"><i>📝</i> <span class="lang-text" data-zh="提交表单" data-en="Submit Form"></span></a>
+            <a href="#" id="aboutLink"><i>ℹ️</i> <span class="lang-text" data-zh="关于我们" data-en="About Us"></span></a>
+        </div>
+    </div>
+
+    <!-- 联系我们图片模态框 -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <img class="modal-image" id="contactImage" src="images/contact.png" alt="联系我们">
+        </div>
+    </div>
+
+    <!-- 提交表单模态框 -->
+    <div class="form-modal" id="formModal">
+        <div class="form-container" id="formContent">
+            <button class="close-btn-form" id="closeFormModal">&times;</button>
+            <div class="form-header">
+                <h2><span class="lang-text" data-zh="提交表单" data-en="Submit Form"></span></h2>
+            </div>
+            <div class="loader" id="formLoader"></div>
+            <form id="submitForm">
+                <div class="form-group">
+                    <label for="name"><span class="lang-text" data-zh="姓名*" data-en="Name*"></span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span class="lang-text" data-zh="电子邮箱*" data-en="Email*"></span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><span class="lang-text" data-zh="电话" data-en="Phone"></span></label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message"><span class="lang-text" data-zh="留言内容*" data-en="Message*"></span></label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="error-message" id="formError"></div>
+                <div class="success-message" id="formSuccess"></div>
+                <div class="form-footer">
+                    <button type="submit" class="submit-btn"><span class="lang-text" data-zh="提交" data-en="Submit"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 关于我们模态框 -->
+    <div class="about-modal" id="aboutModal">
+        <div class="about-content" id="aboutContent">
+            <button class="close-about" id="closeAboutModal">&times;</button>
+            <div class="about-header">
+                <h2><span class="lang-text" data-zh="关于我们" data-en="About Us"></span></h2>
+            </div>
+            <div class="about-text">
+                <p class="lang-text" data-zh="我们是一家致力于提供高质量产品和服务的公司。我们的团队由一群富有创造力和经验丰富的专业人士组成，他们致力于为客户创造最佳体验。" data-en="We are a company committed to providing high-quality products and services. Our team consists of creative and experienced professionals dedicated to creating the best experience for our clients."></p>
+                <p class="lang-text" data-zh="自成立以来，我们一直在不断创新和扩展业务范围，以满足不断变化的市场需求。我们的目标是成为行业内的领导者，为客户创造持久价值。" data-en="Since our establishment, we have been continuously innovating and expanding our business scope to meet the ever-changing market demands. Our goal is to become a leader in our industry and create lasting value for our customers."></p>
+                <p class="lang-text" data-zh="如果您想了解更多，请随时联系我们。" data-en="If you want to learn more, feel free to contact us."></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 轮播图模态框 -->
+    <div class="carousel-modal" id="carouselModal">
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <button class="close-carousel" id="closeCarousel">&times;</button>
+            </div>
+            <div class="carousel-track" id="carouselTrack">
+                <!-- 轮播图内容将通过 JavaScript 动态生成 -->
+            </div>
+            <button class="carousel-btn carousel-prev" id="carouselPrev">&lt;</button>
+            <button class="carousel-btn carousel-next" id="carouselNext">&gt;</button>
+        </div>
+    </div>
+
+    <!-- 图片放大模态框 -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-container">
+            <img id="imageModalImg" src="" alt="放大图片">
+            <button class="close-image-modal" id="closeImageModal">&times;</button>
+        </div>
+    </div>
+
+    <!-- 语言切换 - 修改为图片点击 -->
+    <div class="language-toggle-container" id="languageToggleContainer">
+        <div class="language-toggle-img zh active" id="zhImg">
+            <img src="images/chn_icon.png" alt="中文" class="lang-img">
+        </div>
+        <div class="language-toggle-img en" id="enImg">
+            <img src="images/eng_icon.png" alt="English" class="lang-img">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
